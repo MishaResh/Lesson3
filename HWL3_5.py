@@ -7,19 +7,30 @@
 
 def my_caravay():
     y = 0
+    res = 0
+    sumres = 0
     while True:
         try:
-            zap = input('Введите числа через пробел >> ').split('')
-            print(zap(-1))
-            # zap = list(z for z in zap if not z == "")
-            # zap = list(int(z) for z in zap)
-            res = sum(zap)
-            print(res)
-
+            zap = input('Введите числа через пробел >> ').split(' ')
+            if zap[-1] != '***':
+                # zap = list(z for z in zap if not z == "")
+                zap = list(int(z) for z in zap)
+                res = sum(zap)
+                zap.clear()
+            else:
+                zap.pop()
+                zap = list(int(z) for z in zap)
+                res = sum(zap)
+                zap.clear()
+                break
         except:
             print('Неверный ввод')
+        sumres += res
+        print(sumres)
+    return sumres
 
-    return res
+
+print(my_caravay())
 
 
 print(my_caravay())

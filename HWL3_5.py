@@ -6,14 +6,13 @@
 # сумме и после этого завершить программу.
 
 def my_caravay():
-    y = 0
+    y = True
     res = 0
     sumres = 0
-    while True:
+    while y == True:
         try:
-            zap = input('Введите числа через пробел >> ').split(' ')
+            zap = input("Введите числа через пробел или *** чтобы прекратить ввод >> ").split(' ')
             if zap[-1] != '***':
-                # zap = list(z for z in zap if not z == "")
                 zap = list(int(z) for z in zap)
                 res = sum(zap)
                 zap.clear()
@@ -21,16 +20,16 @@ def my_caravay():
                 zap.pop()
                 zap = list(int(z) for z in zap)
                 res = sum(zap)
+                sumres += res
                 zap.clear()
-                break
+                y = False
         except:
             print('Неверный ввод')
         sumres += res
+        res = 0
         print(sumres)
     return sumres
 
 
 print(my_caravay())
 
-
-print(my_caravay())
